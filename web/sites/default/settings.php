@@ -739,6 +739,11 @@ $settings['file_scan_ignore_directories'] = [
   'bower_components',
 ];
 
+// Load protected configuration from a file managed by Ansible.
+$secret_settings_filepath = dirname(__FILE__) . '/settings.secret.php';
+if (file_exists($secret_settings_filepath)) {
+  require_once $secret_settings_filepath;
+}
 /**
  * Load local development override configuration, if available.
  *
@@ -753,6 +758,7 @@ $settings['file_scan_ignore_directories'] = [
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+/*
 $databases['default']['default'] = array (
   'database' => 'drupal',
   'username' => 'drupal',
@@ -763,5 +769,6 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+*/
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_UmRaR5RbzcERQ681xLNwD3uhQiL-kKx29WJIguuYA2sB3ulglfGxhkUdtCXk0XZWVdptXTB_4g/sync';
